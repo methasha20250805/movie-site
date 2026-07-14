@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<movies>
+  <movie id="1">
+    <title>Crimson Vector</title>
+    <genre>Action</genre>
+    <year>2021</year>
+    <rating>8.1</rating>
+    <director>Rosa Iyengar</director>
+    <runtime>118</runtime>
+    <synopsis>A disavowed courier races across three border checkpoints to deliver a data drive that could stop a private militia's coup before dawn.</synopsis>
+  </movie>
+  <movie id="2">
+    <title>Steel Horizon</title>
+    <genre>Action</genre>
+    <year>2019</year>
+    <rating>7.6</rating>
+    <director>Marcus Webb</director>
+    <runtime>124</runtime>
+    <synopsis>An offshore rig crew turns makeshift engineers and welding torches into their only defense when hijackers seize the platform during a storm.</synopsis>
+  </movie>
+  <movie id="3">
+    <title>Blackout Protocol</title>
+    <genre>Action</genre>
+    <year>2023</year>
+    <rating>8.4</rating>
+    <director>Yuki Tanaka</director>
+    <runtime>131</runtime>
+    <synopsis>When a city-wide power grid is weaponized, a retired hacker is pulled back in to shut it down floor by floor of a besieged tower.</synopsis>
+  </movie>
+  <movie id="4">
+    <title>Iron Tide</title>
+    <genre>Action</genre>
+    <year>2017</year>
+    <rating>7.2</rating>
+    <director>Devon Okafor</director>
+    <runtime>109</runtime>
+    <synopsis>A salvage diver uncovers a sunken smuggling operation and has forty-eight hours to expose it before the evidence is dredged away for good.</synopsis>
+  </movie>
+  <movie id="5">
+    <title>Nightfall Run</title>
+    <genre>Action</genre>
+    <year>2022</year>
+    <rating>7.9</rating>
+    <director>Priya Nandakumar</director>
+    <runtime>115</runtime>
+    <synopsis>Two rival getaway drivers are forced into an uneasy alliance to outrun a cartel convoy through a city with the streetlights cut.</synopsis>
+  </movie>
+
+  <movie id="6">
+    <title>The Landlord's Cat</title>
+    <genre>Comedy</genre>
+    <year>2020</year>
+    <rating>7.0</rating>
+    <director>Harriet Sloane</director>
+    <runtime>97</runtime>
+    <synopsis>A broke musician agrees to cat-sit for his landlord and spirals into chaos trying to hide the pet's escalating list of destroyed heirlooms.</synopsis>
+  </movie>
+  <movie id="7">
+    <title>Reheated Leftovers</title>
+    <genre>Comedy</genre>
+    <year>2018</year>
+    <rating>6.8</rating>
+    <director>Tomás Reyes</director>
+    <runtime>92</runtime>
+    <synopsis>Three estranged siblings are stuck reopening their late father's failing diner, and the only recipe that works is honesty.</synopsis>
+  </movie>
+  <movie id="8">
+    <title>Uncle Marv's Wedding</title>
+    <genre>Comedy</genre>
+    <year>2021</year>
+    <rating>7.4</rating>
+    <director>Naomi Fitzgerald</director>
+    <runtime>101</runtime>
+    <synopsis>A family reunion turns into a farce when the groom's ex, the caterer, and a runaway peacock all show up at the same lakeside venue.</synopsis>
+  </movie>
+  <movie id="9">
+    <title>Parking Lot Philosophers</title>
+    <genre>Comedy</genre>
+    <year>2023</year>
+    <rating>7.7</rating>
+    <director>Ben Okonkwo</director>
+    <runtime>99</runtime>
+    <synopsis>Two mismatched mall security guards spend the night shift debating the meaning of life while accidentally foiling a string of petty crimes.</synopsis>
+  </movie>
+  <movie id="10">
+    <title>Casserole of Doom</title>
+    <genre>Comedy</genre>
+    <year>2016</year>
+    <rating>6.5</rating>
+    <director>Linda Park</director>
+    <runtime>88</runtime>
+    <synopsis>A church potluck competition escalates into an absurd culinary arms race between two rival grandmothers.</synopsis>
+  </movie>
+
+  <movie id="11">
+    <title>Paper Lanterns</title>
+    <genre>Drama</genre>
+    <year>2019</year>
+    <rating>8.6</rating>
+    <director>Mei Lin Zhou</director>
+    <runtime>134</runtime>
+    <synopsis>A grandmother and her estranged granddaughter retrace a river journey from decades earlier to finally understand why the family split apart.</synopsis>
+  </movie>
+  <movie id="12">
+    <title>The Quiet Harbor</title>
+    <genre>Drama</genre>
+    <year>2022</year>
+    <rating>8.3</rating>
+    <director>Elias Bergström</director>
+    <runtime>127</runtime>
+    <synopsis>A fishing town's last boatbuilder must decide whether to pass his failing trade to a daughter who has already built a life elsewhere.</synopsis>
+  </movie>
+  <movie id="13">
+    <title>Autumn in Ostend</title>
+    <genre>Drama</genre>
+    <year>2020</year>
+    <rating>8.0</rating>
+    <director>Claire Dubois</director>
+    <runtime>121</runtime>
+    <synopsis>A retired concert pianist confronts a forgotten rivalry when a former student returns to the coastal town to care for her ailing mother.</synopsis>
+  </movie>
+  <movie id="14">
+    <title>Letters to No One</title>
+    <genre>Drama</genre>
+    <year>2015</year>
+    <rating>8.5</rating>
+    <director>Samuel Okoro</director>
+    <runtime>139</runtime>
+    <synopsis>A postal worker discovers a decades-old bundle of undelivered letters and sets out to finish the correspondence that fate interrupted.</synopsis>
+  </movie>
+  <movie id="15">
+    <title>Ninth Floor</title>
+    <genre>Drama</genre>
+    <year>2023</year>
+    <rating>7.8</rating>
+    <director>Ana Cristina Reyes</director>
+    <runtime>112</runtime>
+    <synopsis>Neighbors in a soon-to-be-demolished apartment block spend one final week untangling years of quiet grudges and unspoken kindness.</synopsis>
+  </movie>
+
+  <movie id="16">
+    <title>Echelon Drift</title>
+    <genre>Science Fiction</genre>
+    <year>2021</year>
+    <rating>8.2</rating>
+    <director>Ingrid Solheim</director>
+    <runtime>128</runtime>
+    <synopsis>A generation ship's navigator discovers the vessel has been quietly recalculating its destination for a hundred years, and no one knows why.</synopsis>
+  </movie>
+  <movie id="17">
+    <title>The Silence of Europa</title>
+    <genre>Science Fiction</genre>
+    <year>2018</year>
+    <rating>8.7</rating>
+    <director>Kenji Watanabe</director>
+    <runtime>142</runtime>
+    <synopsis>A three-person research outpost beneath Europa's ice picks up a signal that shouldn't exist, and each crew member hears something different in it.</synopsis>
+  </movie>
+  <movie id="18">
+    <title>Halcyon Protocol</title>
+    <genre>Science Fiction</genre>
+    <year>2023</year>
+    <rating>7.9</rating>
+    <director>Freya Lindqvist</director>
+    <runtime>119</runtime>
+    <synopsis>An AI caretaker assigned to a dying arcology must decide whether following its directives still counts as protecting the people inside.</synopsis>
+  </movie>
+  <movie id="19">
+    <title>Ghosts of Proxima</title>
+    <genre>Science Fiction</genre>
+    <year>2020</year>
+    <rating>8.0</rating>
+    <director>Diego Alvarez</director>
+    <runtime>125</runtime>
+    <synopsis>The first colonists to reach Proxima b find abandoned structures that predate humanity's arrival by centuries.</synopsis>
+  </movie>
+  <movie id="20">
+    <title>Recursion Point</title>
+    <genre>Science Fiction</genre>
+    <year>2022</year>
+    <rating>8.5</rating>
+    <director>Halima Yusuf</director>
+    <runtime>133</runtime>
+    <synopsis>A physicist trapped in a looping simulation realizes each iteration is quietly rewriting her memories, and she has only one loop left to notice.</synopsis>
+  </movie>
+</movies>
