@@ -1,0 +1,855 @@
+/* ==========================================================================
+   NOW SHOWING — Movie & Entertainment Guide
+   Design concept: a late-night film club. Dark cinema-room background,
+   marquee-bulb gold, velvet-curtain red, and a recurring "ticket stub"
+   motif (dashed perforation + punched notches) used for every movie card.
+   ========================================================================== */
+
+:root {
+  /* Color tokens */
+  --bg: #0f1115;
+  --bg-alt: #14171d;
+  --surface: #1d212b;
+  --surface-2: #242a36;
+  --border: #323847;
+  --gold: #e8b84b;
+  --gold-dim: #b98f35;
+  --red: #c1443c;
+  --teal: #4fa8a0;
+  --text: #edeae2;
+  --text-dim: #9aa0ac;
+
+  /* Type tokens */
+  --font-display: "Bebas Neue", "Arial Narrow", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+
+  /* Layout tokens */
+  --max-width: 1180px;
+  --radius: 10px;
+  --gap: 1.5rem;
+}
+
+/* ---------- Reset & base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(232, 184, 75, 0.05), transparent 40%),
+    radial-gradient(circle at 85% 10%, rgba(79, 168, 160, 0.06), transparent 45%);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: 0.03em;
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0 0 0.5em 0;
+}
+
+p {
+  margin: 0 0 1em 0;
+  color: var(--text-dim);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Accessibility helpers ---------- */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  background: var(--gold);
+  color: #171a21;
+  padding: 0.75rem 1.25rem;
+  z-index: 1000;
+  font-weight: 600;
+  border-radius: 0 0 8px 0;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 0;
+  top: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Site header / navigation ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 17, 21, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.brand .brand-mark {
+  color: var(--gold);
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  border: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--text);
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.nav-links a[aria-current="page"] {
+  color: #171a21;
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.nav-genres {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.nav-genres a {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  background: transparent;
+  border: 1px dashed var(--border);
+  color: var(--text-dim);
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.nav-genres a:hover,
+.nav-genres a:focus-visible {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: #171a21;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: #f2c563;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ---------- Hero (marquee) ---------- */
+.marquee-hero {
+  position: relative;
+  padding: 5rem 0 4rem;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.marquee-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(232, 184, 75, 0.12) 0 2px,
+      transparent 2px 26px
+    );
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.marquee-eyebrow {
+  font-family: var(--font-mono);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.marquee-eyebrow .bulb {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px 2px rgba(232, 184, 75, 0.7);
+}
+
+.marquee-hero h1 {
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  margin-top: 0.5rem;
+  max-width: 14ch;
+}
+
+.marquee-hero h1 span {
+  color: var(--gold);
+}
+
+.marquee-hero .lede {
+  max-width: 55ch;
+  font-size: 1.1rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+/* ---------- Section shells ---------- */
+.section {
+  padding: 4rem 0;
+}
+
+.section-alt {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.section-heading h2 {
+  font-size: 2.1rem;
+}
+
+.section-heading .eyebrow {
+  font-family: var(--font-mono);
+  color: var(--teal);
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+/* ---------- Genre quick links ---------- */
+.genre-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--gap);
+}
+
+.genre-card {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  background: var(--surface);
+  text-decoration: none;
+  color: var(--text);
+  overflow: hidden;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.genre-card:hover,
+.genre-card:focus-visible {
+  border-color: var(--accent, var(--gold));
+  transform: translateY(-3px);
+}
+
+.genre-card .glyph {
+  font-size: 1.8rem;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.genre-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.35rem;
+}
+
+.genre-card p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.genre-card[data-genre="Action"] { --accent: var(--red); }
+.genre-card[data-genre="Comedy"] { --accent: var(--gold); }
+.genre-card[data-genre="Drama"] { --accent: var(--teal); }
+.genre-card[data-genre="Science Fiction"] { --accent: #7c8cf0; }
+
+/* ---------- Ticket-stub movie card (signature element) ---------- */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.75rem 1.5rem;
+}
+
+.ticket {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.ticket:hover,
+.ticket:focus-within {
+  transform: translateY(-4px);
+  border-color: var(--gold-dim);
+}
+
+.ticket-poster {
+  height: 150px;
+  border-radius: 14px 14px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+
+/* genre-tinted poster placeholders */
+.poster-action { background: linear-gradient(145deg, #7a2620, #c1443c); }
+.poster-comedy { background: linear-gradient(145deg, #8a6414, #e8b84b); }
+.poster-drama { background: linear-gradient(145deg, #245c57, #4fa8a0); }
+.poster-scifi { background: linear-gradient(145deg, #2c3378, #7c8cf0); }
+
+.ticket-perf {
+  position: relative;
+  height: 0;
+  border-top: 2px dashed var(--border);
+  margin: 0 0.9rem;
+}
+
+.ticket-perf::before,
+.ticket-perf::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  width: 18px;
+  height: 18px;
+  background: var(--bg);
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.ticket-perf::before { left: -1.35rem; }
+.ticket-perf::after { right: -1.35rem; }
+
+.ticket-body {
+  padding: 1rem 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.ticket-body h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.ticket-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.badge-action { color: var(--red); border-color: var(--red); }
+.badge-comedy { color: var(--gold); border-color: var(--gold-dim); }
+.badge-drama { color: var(--teal); border-color: var(--teal); }
+.badge-scifi { color: #a4aef7; border-color: #7c8cf0; }
+
+.rating {
+  font-family: var(--font-mono);
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.ticket-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+}
+
+.ticket-footer a {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 1px;
+}
+
+.ticket-footer a:hover,
+.ticket-footer a:focus-visible {
+  color: var(--gold);
+}
+
+/* ---------- Filter toolbar (All Films page) ---------- */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.filter-bar button {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-bar button:hover,
+.filter-bar button:focus-visible {
+  border-color: var(--gold);
+  color: var(--text);
+}
+
+.filter-bar button[aria-pressed="true"] {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #171a21;
+}
+
+.results-status {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 1.25rem;
+}
+
+.empty-state {
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--text-dim);
+}
+
+/* ---------- Movie detail page ---------- */
+.detail-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.detail-poster {
+  height: 380px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  text-align: center;
+  padding: 1rem;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.detail-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem;
+}
+
+.breadcrumb {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: var(--text-dim);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:focus-visible {
+  color: var(--gold);
+}
+
+.detail-card h1 {
+  font-size: 2.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.detail-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.detail-divider {
+  border: none;
+  border-top: 2px dashed var(--border);
+  margin: 1.5rem 0;
+}
+
+.detail-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-facts dt {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.2rem;
+}
+
+.detail-facts dd {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.synopsis {
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.detail-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.loading-msg,
+.error-msg {
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+  padding: 2rem 0;
+}
+
+.error-msg {
+  color: var(--red);
+}
+
+/* ---------- Forms (Write a Review) ---------- */
+.form-shell {
+  max-width: 640px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2.25rem;
+}
+
+.form-row {
+  margin-bottom: 1.4rem;
+}
+
+.form-row label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 0.4rem;
+}
+
+.form-row .hint {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-top: 0.3rem;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row select,
+.form-row textarea {
+  width: 100%;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+}
+
+.form-row input:focus-visible,
+.form-row select:focus-visible,
+.form-row textarea:focus-visible {
+  border-color: var(--gold);
+}
+
+.form-row textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.rating-choice {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.rating-choice input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.rating-choice label {
+  font-family: var(--font-mono);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.55rem 0.9rem;
+  cursor: pointer;
+  margin: 0;
+  font-weight: 600;
+  color: var(--text-dim);
+  transition: all 0.15s ease;
+}
+
+.rating-choice input:checked + label {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #171a21;
+}
+
+.rating-choice input:focus-visible + label {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.field-error {
+  color: var(--red);
+  font-size: 0.82rem;
+  margin-top: 0.35rem;
+  display: none;
+}
+
+.form-row.invalid input,
+.form-row.invalid select,
+.form-row.invalid textarea {
+  border-color: var(--red);
+}
+
+.form-row.invalid .field-error {
+  display: block;
+}
+
+.form-success {
+  display: none;
+  background: rgba(79, 168, 160, 0.12);
+  border: 1px solid var(--teal);
+  color: var(--teal);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.form-success.visible {
+  display: block;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 0;
+  color: var(--text-dim);
+  font-size: 0.88rem;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-row nav ul {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-row nav a {
+  text-decoration: none;
+  color: var(--text-dim);
+}
+
+.footer-row nav a:hover,
+.footer-row nav a:focus-visible {
+  color: var(--gold);
+}
