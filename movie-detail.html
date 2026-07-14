@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Film Details | NOW SHOWING</title>
+<meta name="description" content="Full details for a film in the NOW SHOWING catalog: genre, year, rating, director and synopsis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="nav-bar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">&#9670;</span> NOW SHOWING
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="movies.html">All Films</a></li>
+        <li><a href="form.html">Write a Review</a></li>
+      </ul>
+    </nav>
+
+    <nav class="nav-genres" aria-label="Browse by genre">
+      <a href="movies.html?genre=Action">Action</a>
+      <a href="movies.html?genre=Comedy">Comedy</a>
+      <a href="movies.html?genre=Drama">Drama</a>
+      <a href="movies.html?genre=Science%20Fiction">Sci-Fi</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="section">
+    <div class="container" id="detail-mount" aria-live="polite">
+      <p class="loading-msg">Loading film details&hellip;</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <p>&copy; 2026 NOW SHOWING. A film discovery project.</p>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="movies.html">All Films</a></li>
+        <li><a href="form.html">Write a Review</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Write a Review | NOW SHOWING</title>
+<meta name="description" content="Share your thoughts on a film in the NOW SHOWING catalog.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="nav-bar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">&#9670;</span> NOW SHOWING
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="movies.html">All Films</a></li>
+        <li><a href="form.html" aria-current="page">Write a Review</a></li>
+      </ul>
+    </nav>
+
+    <nav class="nav-genres" aria-label="Browse by genre">
+      <a href="movies.html?genre=Action">Action</a>
+      <a href="movies.html?genre=Comedy">Comedy</a>
+      <a href="movies.html?genre=Drama">Drama</a>
+      <a href="movies.html?genre=Science%20Fiction">Sci-Fi</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Tell us what you thought</span>
+          <h1>Write a review</h1>
+        </div>
+      </div>
+      <p>Fields marked <span aria-hidden="true">*</span><span class="visually-hidden">required</span> are required. We'll check everything before it's submitted — nothing is sent to a server in this demo.</p>
+
+      <div class="form-shell">
+        <div class="form-success" id="form-success" role="alert"></div>
+
+        <form id="review-form" novalidate>
+
+          <div class="form-row">
+            <label for="reviewer-name">Your name <span aria-hidden="true">*</span></label>
+            <input type="text" id="reviewer-name" name="reviewer-name" autocomplete="name" aria-describedby="reviewer-name-error" required>
+            <p class="field-error" id="reviewer-name-error" role="alert"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="reviewer-email">Email address <span aria-hidden="true">*</span></label>
+            <input type="email" id="reviewer-email" name="reviewer-email" autocomplete="email" aria-describedby="reviewer-email-error hint-email" required>
+            <p class="hint" id="hint-email">We'll never share your email. It's only used to confirm your review.</p>
+            <p class="field-error" id="reviewer-email-error" role="alert"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="movie-select">Which film are you reviewing? <span aria-hidden="true">*</span></label>
+            <select id="movie-select" name="movie-select" aria-describedby="movie-select-error" required>
+              <option value="">Select a film&hellip;</option>
+            </select>
+            <p class="field-error" id="movie-select-error" role="alert"></p>
+          </div>
+
+          <div class="form-row">
+            <label id="rating-label">Your rating <span aria-hidden="true">*</span></label>
+            <div class="rating-choice" role="radiogroup" aria-labelledby="rating-label" aria-describedby="review-rating-error">
+              <input type="radio" name="review-rating" id="rating-1" value="1">
+              <label for="rating-1">1 &#9733;</label>
+
+              <input type="radio" name="review-rating" id="rating-2" value="2">
+              <label for="rating-2">2 &#9733;</label>
+
+              <input type="radio" name="review-rating" id="rating-3" value="3">
+              <label for="rating-3">3 &#9733;</label>
+
+              <input type="radio" name="review-rating" id="rating-4" value="4">
+              <label for="rating-4">4 &#9733;</label>
+
+              <input type="radio" name="review-rating" id="rating-5" value="5">
+              <label for="rating-5">5 &#9733;</label>
+            </div>
+            <p class="field-error" id="review-rating-error" role="alert"></p>
+          </div>
+
+          <div class="form-row">
+            <label for="review-text">Your review <span aria-hidden="true">*</span></label>
+            <textarea id="review-text" name="review-text" aria-describedby="review-text-error hint-review" required></textarea>
+            <p class="hint" id="hint-review">At least 15 characters — what worked, what didn't, who should watch it.</p>
+            <p class="field-error" id="review-text-error" role="alert"></p>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit review</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <p>&copy; 2026 NOW SHOWING. A film discovery project.</p>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="movies.html">All Films</a></li>
+        <li><a href="form.html">Write a Review</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

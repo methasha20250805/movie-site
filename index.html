@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOW SHOWING — Discover Your Next Favorite Film</title>
+<meta name="description" content="Browse action, comedy, drama and science fiction films, read details, and share your own reviews.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="nav-bar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">&#9670;</span> NOW SHOWING
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="movies.html">All Films</a></li>
+        <li><a href="form.html">Write a Review</a></li>
+      </ul>
+    </nav>
+
+    <nav class="nav-genres" aria-label="Browse by genre">
+      <a href="movies.html?genre=Action">Action</a>
+      <a href="movies.html?genre=Comedy">Comedy</a>
+      <a href="movies.html?genre=Drama">Drama</a>
+      <a href="movies.html?genre=Science%20Fiction">Sci-Fi</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <section class="marquee-hero">
+    <div class="container">
+      <span class="marquee-eyebrow"><span class="bulb" aria-hidden="true"></span>Open every night, no tickets required</span>
+      <h1>Find the film that fits <span>tonight's mood.</span></h1>
+      <p class="lede">A small, honest catalog of twenty films across four genres — action, comedy, drama and science fiction — with the details you actually want before you press play.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="movies.html">Browse all films</a>
+        <a class="btn btn-outline" href="form.html">Write a review</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="genres-heading">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Start here</span>
+          <h2 id="genres-heading">Pick a genre</h2>
+        </div>
+      </div>
+      <div class="genre-grid">
+        <a class="genre-card" data-genre="Action" href="movies.html?genre=Action">
+          <span class="glyph" aria-hidden="true">&#9650;</span>
+          <h3>Action</h3>
+          <p>Chases, heists and high-stakes standoffs.</p>
+        </a>
+        <a class="genre-card" data-genre="Comedy" href="movies.html?genre=Comedy">
+          <span class="glyph" aria-hidden="true">&#9734;</span>
+          <h3>Comedy</h3>
+          <p>Family chaos and dry, well-earned laughs.</p>
+        </a>
+        <a class="genre-card" data-genre="Drama" href="movies.html?genre=Drama">
+          <span class="glyph" aria-hidden="true">&#9670;</span>
+          <h3>Drama</h3>
+          <p>Quiet, character-driven stories that stay with you.</p>
+        </a>
+        <a class="genre-card" data-genre="Science Fiction" href="movies.html?genre=Science%20Fiction">
+          <span class="glyph" aria-hidden="true">&#10022;</span>
+          <h3>Science Fiction</h3>
+          <p>Distant colonies, strange signals, bigger questions.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="featured-heading">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Tonight's picks</span>
+          <h2 id="featured-heading">Featured films</h2>
+        </div>
+        <a class="btn btn-outline" href="movies.html">See the full catalog</a>
+      </div>
+      <div class="movie-grid" id="featured-movies" aria-live="polite">
+        <p class="loading-msg">Loading tonight's picks&hellip;</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <p>&copy; 2026 NOW SHOWING. A film discovery project.</p>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="movies.html">All Films</a></li>
+        <li><a href="form.html">Write a Review</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

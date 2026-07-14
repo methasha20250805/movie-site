@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Films | NOW SHOWING</title>
+<meta name="description" content="Browse and filter the full film catalog by genre: action, comedy, drama and science fiction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="nav-bar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">&#9670;</span> NOW SHOWING
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="movies.html" aria-current="page">All Films</a></li>
+        <li><a href="form.html">Write a Review</a></li>
+      </ul>
+    </nav>
+
+    <nav class="nav-genres" aria-label="Browse by genre">
+      <a href="movies.html?genre=Action">Action</a>
+      <a href="movies.html?genre=Comedy">Comedy</a>
+      <a href="movies.html?genre=Drama">Drama</a>
+      <a href="movies.html?genre=Science%20Fiction">Sci-Fi</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">The full catalog</span>
+          <h1>All films</h1>
+        </div>
+      </div>
+
+      <p>Filter the catalog by genre. Selecting a filter updates the list instantly without reloading the page.</p>
+
+      <div class="filter-bar" role="group" aria-label="Filter films by genre">
+        <button type="button" data-genre="All" aria-pressed="true">All genres</button>
+        <button type="button" data-genre="Action" aria-pressed="false">Action</button>
+        <button type="button" data-genre="Comedy" aria-pressed="false">Comedy</button>
+        <button type="button" data-genre="Drama" aria-pressed="false">Drama</button>
+        <button type="button" data-genre="Science Fiction" aria-pressed="false">Science Fiction</button>
+      </div>
+
+      <p class="results-status" id="results-status" aria-live="polite">Loading films&hellip;</p>
+
+      <div class="movie-grid" id="movie-grid" aria-live="polite" aria-busy="true">
+        <p class="loading-msg">Loading films&hellip;</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <p>&copy; 2026 NOW SHOWING. A film discovery project.</p>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="movies.html">All Films</a></li>
+        <li><a href="form.html">Write a Review</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
